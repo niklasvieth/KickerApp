@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:forms="sap.ui.layout.form">
+	<Dialog contentWidth="25em" showHeader="false" horizontalScrolling="false" afterClose="onExit" contentHeight="18em" id="">
+		<Page showNavButton="false" title="Neuen Spieler anlegen" enableScrolling="true">
+			<content>
+				<forms:SimpleForm>
+					<Label text="Name"/>
+					<Input required="true"></Input>
+					<Label text="Alias"/>
+					<Input required="true"></Input>
+				</forms:SimpleForm>
+			</content>
+		</Page>
+		<buttons>
+			<Button id="" press="saveGame" text="Speichern" type="Emphasized"/>
+			<Button id="" press="onExit" text="Abbrechen"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>

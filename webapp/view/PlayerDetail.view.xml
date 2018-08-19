@@ -1,0 +1,46 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="KickerApp.controller.PlayerDetail"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart">
+	<App>
+		<pages>
+			<Page title="Player Detail" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<layout:VerticalLayout class="sapUiResponsiveMargin">
+						<Title titleStyle="H2" text="Analyse Seite" class="sapUiTinyMarginBegin"/>
+						<layout:HorizontalLayout allowWrapping="true">
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Siege" subheader="" press="onNavToKriechStat">
+								<tileContent>
+									<TileContent>
+										<content>
+											<microchart:RadialMicroChart percentage="75.0" total="100.0" valueColor="green"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Niederlagen" subheader="" press="onNavToKriechStat">
+								<tileContent>
+									<TileContent>
+										<content>
+											<microchart:RadialMicroChart percentage="25.0" total="100.0" valueColor="red"/>
+										</content>
+									</TileContent>
+								</tileContent>
+							</GenericTile>
+							
+						</layout:HorizontalLayout>
+						<FlexBox width="20rem" height="10rem" justifyContent="SpaceBetween">
+							<items>
+								<microchart:InteractiveDonutChart selectionChanged="onSelectionChanged">
+									<microchart:segments>
+										<microchart:InteractiveDonutChartSegment label="Implementation Phase" value="40.0" displayedValue="40.0%"/>
+										<microchart:InteractiveDonutChartSegment label="Design Phase" value="21.5" displayedValue="21.5%"/>
+										<microchart:InteractiveDonutChartSegment label="Test Phase" value="38.5" displayedValue="38.5%"/>
+									</microchart:segments>
+								</microchart:InteractiveDonutChart>
+							</items>
+						</FlexBox>
+					</layout:VerticalLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,51 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:microchart="sap.suite.ui.microchart"
+	controllerName="KickerApp.controller.MainPage">
+	<App id="app">
+		<pages>
+			<Page title="" showHeader="false">
+				<ObjectHeader title="Kicker App" backgroundDesign="Solid" icon="sap-icon://soccor"></ObjectHeader>
+				<layout:VerticalLayout class="sapUiResponsiveMargin">
+					<Title titleStyle="H2" text="Kicker App" class="sapUiTinyMarginBegin"/>
+					<layout:HorizontalLayout allowWrapping="true">
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Kriechstatistik" subheader="" press="onNavToKriechStat">
+							<tileContent>
+								<TileContent>
+									<content>
+										<NumericContent icon="sap-icon://sorting-ranking"/>
+										<microchart:RadialMicroChart percentage="25.0" total="100.0" valueColor="red"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Alle Spiele" press="onNavToAllGames">
+							<tileContent>
+								<TileContent>
+									<content>
+										<NumericContent value="{ path: 'game_model>/', formatter: '.getEntityCount' }" indicator="None" valueColor="Neutral"
+											icon="sap-icon://history"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+						<GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop" header="Alle Spieler" subheader="Markdorf" press="onNavToAllPlayers">
+							<tileContent>
+								<TileContent>
+									<content>
+										<NumericContent value="{ path: 'player_model>/', formatter: '.getEntityCount' }" indicator="None" valueColor="Neutral"
+											icon="sap-icon://group"/>
+									</content>
+								</TileContent>
+							</tileContent>
+						</GenericTile>
+					</layout:HorizontalLayout>
+				</layout:VerticalLayout>
+				<footer>
+					<OverflowToolbar>
+						<ToolbarSpacer/>
+						<Button text="" icon="sap-icon://email"/>
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

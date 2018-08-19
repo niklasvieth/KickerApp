@@ -1,0 +1,70 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="KickerApp.controller.AllPlayers"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App id="app">
+		<Page title="Alle Spieler" showNavButton="true" navButtonPress="onNavBack">
+			<content>
+				<VBox fitContainer="true">
+					<OverflowToolbar class="sapFDynamicPageAlignContent">
+						<SearchField search="handleSearch" width="85%">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</SearchField>
+						<ToolbarSpacer/>
+						<Button icon="sap-icon://add-employee" press="onNewPlayer" hAlign="End">
+							<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+						</Button>
+					</OverflowToolbar>
+					<Table id="playersTable" inset="false" items="{ path: 'player_model>/', sorter: { path: 'Name' } }" class="sapFDynamicPageAlignContent"
+						width="auto">
+						<columns>
+							<Column width="12em">
+								<Text text="Alias"/>
+							</Column>
+							<Column hAlign="End">
+								<Text text="Name"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Navigation" press="onListItemPress">
+								<cells>
+									<ObjectIdentifier title="{player_model>Alias}" text="{products>Alias}"/>
+									<ObjectIdentifier title="{player_model>Name}" text="{products>Name}"/>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+				<!--<List id="idListAllPlayers">-->
+				<!--	<headerToolbar>-->
+				<!--		<Toolbar>-->
+				<!--			<ToolbarSpacer/>-->
+				<!--			<Button icon="sap-icon://add-employee" text="Neuer Spieler" press="onNewPlayer"/>-->
+				<!--		</Toolbar>-->
+				<!--	</headerToolbar>-->
+				<!--	<items>-->
+				<!--		<CustomListItem>-->
+				<!--			<HBox>-->
+				<!--				<core:Icon size="2rem" src="sap-icon://soccor" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>-->
+				<!--				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">-->
+				<!--					<Label text="Name"/>-->
+				<!--					<Label text="D-User"/>-->
+				<!--				</VBox>-->
+				<!--				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">-->
+				<!--					<Label text="Gewonnene Spiele"/>-->
+				<!--					<Text text="3"/>-->
+				<!--				</VBox>-->
+				<!--				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">-->
+				<!--					<Label text="Verlorene Spiele"/>-->
+				<!--					<Text text="3"/>-->
+				<!--				</VBox>-->
+				<!--				<VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">-->
+				<!--					<Label text="Anzahl Kriecher"/>-->
+				<!--					<Text text="1"/>-->
+				<!--				</VBox>-->
+				<!--			</HBox>-->
+				<!--		</CustomListItem>-->
+				<!--	</items>-->
+				<!--</List>-->
+			</content>
+		</Page>
+	</App>
+</mvc:View>

@@ -1,0 +1,23 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="KickerApp.controller.KriechBilder"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Kriechbilder" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<Toolbar height="auto">
+						<ToolbarSpacer/>
+						<Panel id="carouselContainer" height="650px" arrowsPlacement="sap.m.CarouselArrowsPlacement.Content">
+							<Carousel class="sapUiContentPadding" id="carousel">
+								<pages>
+									<Image src="images/img1.jpg"></Image>
+									<Image src="images/img2.jpg"></Image>
+								</pages>
+							</Carousel>
+						</Panel>
+						<ToolbarSpacer/>
+					</Toolbar>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

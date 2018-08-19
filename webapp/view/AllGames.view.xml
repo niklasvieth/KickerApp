@@ -1,0 +1,41 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="KickerApp.controller.AllGames"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Alle Spiele" showNavButton="true" navButtonPress="onNavBack">
+				<content>
+					<List id="idListAllGames" items="{ path: 'game_model>/', sorter: { path: 'Timestamp', descending: false, group: true } }">
+						<headerToolbar>
+							<OverflowToolbar>
+								<Title text="Alle Spiele"/>
+								<ToolbarSpacer/>
+								<Button icon="sap-icon://soccor" text="Neues Spiel" press="onNewGame"/>
+							</OverflowToolbar>
+						</headerToolbar>
+						<items>
+							<CustomListItem>
+								<HBox>
+									<!--<core:Icon size="2rem" src="sap-icon://soccor" class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom"/>-->
+									<VBox class="sapUiMediumMarginBegin sapUiSmallMarginTopBottom">
+										<Label text="{game_model>Player1}"/>
+										<Label text="{game_model>Player2}"/>
+									</VBox>
+									<VBox class="sapUiMediumMarginBegin" justifyContent="Center">
+										<Title text="{game_model>Result}"/>
+									</VBox>
+									<VBox class="sapUiMediumMarginBegin sapUiSmallMarginTopBottom">
+										<Label text="{game_model>Player3}"/>
+										<Label text="{game_model>Player4}"/>
+									</VBox>
+									<VBox justifyContent="Center" class="sapUiSmallMarginBegin" visible="{game_model>Kriechen}">
+										<Button icon="sap-icon://image-viewer" tooltip="Kriechbilder" press="onNavToKriechBilder"></Button>
+									</VBox>
+								</HBox>
+							</CustomListItem>
+						</items>
+					</List>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

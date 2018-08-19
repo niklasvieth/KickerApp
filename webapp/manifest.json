@@ -1,0 +1,175 @@
+{
+	"_version": "1.7.0",
+	"sap.app": {
+		"id": "KickerApp",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		},
+		"dataSources": {
+			"mainService": {
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				},
+				"uri": "localService/metadata.xml"
+			}
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "images/favicon.ico",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "KickerApp.view.MainPage",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "KickerApp.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService"
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "KickerApp.view",
+				"controlAggregation": "pages",
+				"controlId": "app"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "MainPage",
+					"target": "MainPage"
+				},
+				{
+					"pattern": "AllPlayers",
+					"name": "AllPlayers",
+					"target": "AllPlayers"
+				},
+				{
+					"pattern": "AllGames",
+					"name": "AllGames",
+					"target": "AllGames"
+				},
+				{
+					"pattern": "PlayerDetail",
+					"name": "PlayerDetail",
+					"target": "PlayerDetail"
+				},
+				{
+					"pattern": "KriechBilder",
+					"name": "KriechBilder",
+					"target": "KriechBilder"
+				}
+			],
+			"targets": {
+				"MainPage": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "MainPage",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "KickerApp.view",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				},
+				"AllPlayers": {
+					"viewType": "XML",
+					"viewName": "AllPlayers",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "KickerApp.view",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				},
+				"AllGames": {
+					"viewType": "XML",
+					"viewName": "AllGames",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "KickerApp.view",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				},
+				"PlayerDetail": {
+					"viewType": "XML",
+					"viewName": "PlayerDetail",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "KickerApp.view",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				},
+				"KriechBilder": {
+					"viewType": "XML",
+					"viewName": "KriechBilder",
+					"routerClass": "sap.m.routing.Router",
+					"async": true,
+					"viewPath": "KickerApp.view",
+					"controlAggregation": "pages",
+					"controlId": "app"
+				}
+			}
+		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
+	}
+}

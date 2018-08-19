@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:forms="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+	<Dialog contentWidth="50em" showHeader="false" horizontalScrolling="false" afterClose="onExit" contentHeight="40em" id="popupFragmentId">
+		<Page showNavButton="false" title="Neues Spiel" enableScrolling="true">
+			<content>
+				<forms:SimpleForm>
+					<core:Title text="Team 1"/>
+					<Label text="Spieler 1"/>
+					<Select showSecondaryValues="true" items="{ path: 'player_model>/' }" id="player1Input">
+						<core:ListItem key="{player_model>Name}" text="{player_model>Alias}" additionalText="{player_model>Name}"/>
+					
+					</Select>
+					<Label text="Spieler 2"/>
+					<Select showSecondaryValues="true" items="{ path: 'player_model>/' }" id="player2Input">
+						<core:ListItem key="{player_model>Name}" text="{player_model>Alias}" additionalText="{player_model>Name}"/>
+					</Select>
+					<core:Title text="Team 2"/>
+					<Label text="Spieler 3"/>
+					<Select showSecondaryValues="true" items="{ path: 'player_model>/' }" id="player3Input">
+						<core:ListItem key="{player_model>Name}" text="{player_model>Alias}" additionalText="{player_model>Name}"/>
+					</Select>
+					<Label text="Spieler 4"/>
+					<Select showSecondaryValues="true" items="{ path: 'player_model>/' }" id="player4Input">
+						<core:ListItem key="{player_model>Name}" text="{player_model>Alias}" additionalText="{player_model>Name}"/>
+					</Select>
+					<core:Title text="Endstand"/>
+					<Label text="Team 1"/>
+					<StepInput value="5" min="0" max="6" width="" step="1" change="onChange"/>
+					<core:Title text=""/>
+					<Label text="Team 2"/>
+					<StepInput value="5" min="0" max="6" width="" step="1" change="onChange"/>
+					<core:Title text="Musste jemand kriechen?"/>
+					<Switch type="AcceptReject" state="false" change="onSwitchChange" id="switchId">
+						<layoutData>
+							<FlexItemData growFactor="1"/>
+						</layoutData>
+					</Switch>
+					<core:Title/>
+					<l:VerticalLayout id="uploadSection" visible="false">
+						<l:HorizontalLayout>
+							<u:FileUploader id="fileUploader" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+								uploadComplete="handleUploadComplete"/>
+							<Button icon="sap-icon://upload-to-cloud" press="handleUploadPress" class="sapUiTinyMarginBegin"/>
+						</l:HorizontalLayout>
+						<l:HorizontalLayout>
+							<u:FileUploader id="fileUploader2" name="myFileUpload" uploadUrl="upload/" tooltip="Upload your file to the local server"
+								uploadComplete="handleUploadComplete"/>
+							<Button icon="sap-icon://upload-to-cloud" press="handleUploadPress" class="sapUiTinyMarginBegin"/>
+						</l:HorizontalLayout>
+					</l:VerticalLayout>
+				</forms:SimpleForm>
+			</content>
+		</Page>
+		<buttons>
+			<Button press="saveGame" text="Spiel speichern" type="Emphasized"/>
+			<Button press="onExit" text="Abbrechen"/>
+		</buttons>
+	</Dialog>
+</core:FragmentDefinition>
